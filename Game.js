@@ -62,7 +62,7 @@ export default class Game{
                     sReply+="You are correct. \n";
                     this.rAnswer++;    
                 }
-                else if (sInput!=this.correctAnswer && this.correctAnswer!=0 &this.roundCount!=0)
+                else if (sInput!=this.correctAnswer && this.roundCount!=0)
                 {
                     if (isNaN(sInput))
                     {
@@ -80,8 +80,7 @@ export default class Game{
                     thirdNumb=firstNumb+2*parameter;
                     fourthNumb=firstNumb+3*parameter;
                     fifthNumb=firstNumb+4*parameter;
-                    sixNumb=firstNumb+5*parameter;
-                    this.correctAnswer=sixNumb;
+                    sixNumb=firstNumb+5*parameter;                    
                 } 
                 else if (qSelector==2)
                 {
@@ -91,8 +90,7 @@ export default class Game{
                     thirdNumb=firstNumb+(parameter**1);
                     fourthNumb=firstNumb+(parameter**2);
                     fifthNumb=firstNumb+(parameter**3);
-                    sixNumb=fifthNumb+(parameter**4);
-                    this.correctAnswer=sixNumb;
+                    sixNumb=fifthNumb+(parameter**4);                    
                 }  
                 else if (qSelector==3)  
                 {
@@ -103,8 +101,7 @@ export default class Game{
                     thirdNumb=firstNumb+secParameter+parameter;
                     fourthNumb=firstNumb+2*parameter+secParameter;
                     fifthNumb=firstNumb+2*parameter+2*secParameter;
-                    sixNumb=firstNumb+ 3*parameter+2*secParameter;
-                    this.correctAnswer=sixNumb;
+                    sixNumb=firstNumb+ 3*parameter+2*secParameter;                    
                 }   
                 else if (qSelector==4)      
                 {
@@ -115,8 +112,7 @@ export default class Game{
                     thirdNumb=firstNumb+secParameter+parameter;
                     fourthNumb=firstNumb+parameter+2*secParameter;
                     fifthNumb=firstNumb+parameter+3*secParameter;
-                    sixNumb=firstNumb+ parameter+4*secParameter;
-                    this.correctAnswer=sixNumb;
+                    sixNumb=firstNumb+ parameter+4*secParameter;                    
                 }
                 else if (qSelector==5)
                 {
@@ -126,9 +122,9 @@ export default class Game{
                     thirdNumb=firstNumb*parameter*(parameter+1);
                     fourthNumb=firstNumb*parameter*(parameter+1)*(parameter+2);
                     fifthNumb=firstNumb*parameter*(parameter+1)*(parameter+2)*(parameter+3);
-                    sixNumb=firstNumb*parameter*(parameter+1)*(parameter+2)*(parameter+3)*(parameter+4);
-                    this.correctAnswer=sixNumb;
+                    sixNumb=firstNumb*parameter*(parameter+1)*(parameter+2)*(parameter+3)*(parameter+4);                    
                 }
+                this.correctAnswer=sixNumb;
                 sReply+="Question No."+(this.questionNumb+1)+": \n"+ firstNumb+ " "+ secondNumb+" "+thirdNumb+" "+fourthNumb+" "+fifthNumb+ " ?"+
                 "\n What is the Sixth number?";
                 this.roundCount++;
@@ -140,33 +136,35 @@ export default class Game{
             {
                 if (sInput==this.correctAnswer && this.roundCount!=0)
                 {
-                    sReply="you right. the correct answer is " + this.correctAnswer+"\n";                  
-    
+                    sReply="you right. the correct answer is " + this.correctAnswer+"\n";   
                 }
                 else if (sInput!=this.correctAnswer && this.correctAnswer!=0)
                 {
                     if (isNaN(sInput))
                     {
                         return (["Please enter valid number!"]);
-                    }
-                    
+                    }                    
                     sReply="You are wrong! \n Correct answer is "+this.correctAnswer+ "\n";
                 };
+                sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + " level! \n";
 
-                if (this.wAnswer>this.rAnswer)
+                if ((this.rAnswer/this.wAnswer)*100>=60)
                 {
-                    sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + " level!";
-                    this.stateCur=GameState.WELCOMING;                
-                    sReply+="\n You can type one of keywords to \n retry current level or advance to\n next level.";
-                    this.rAnswer=0;
-                    this.wAnswer=0;
-                    this.roundCount=0;
-                    this.questionNumb=0;
+                    sReply+="You've PASSED this challenge\n level.";
                 }
+                else
+                {
+                    sReply+="You've FAILED this challenge\n level.";
+                }
+                this.stateCur=GameState.WELCOMING;                
+                sReply+="\n You can type one of keywords to \n retry current level or advance to\n next level.";
+                this.rAnswer=0;
+                this.wAnswer=0;
+                this.roundCount=0;
+                this.questionNumb=0;
                 return ([sReply]);
             }
         };
-
 
 
         while (this.stateCur==GameState.MEDIUM)
@@ -185,7 +183,7 @@ export default class Game{
                     sReply+="You are correct. \n";
                     this.rAnswer++;    
                 }
-                else if (sInput!=this.correctAnswer && this.correctAnswer!=0 &this.roundCount!=0)
+                else if (sInput!=this.correctAnswer &&this.roundCount!=0)
                 {
                     if (isNaN(sInput))
                     {
@@ -197,14 +195,12 @@ export default class Game{
                 let qSelector=Math.floor(Math.random() * 5) + 1 ;
                 if (qSelector==1)
                 {
-                    // let parameter=Math.ceil(Math.random()*100);
                     firstNumb=Math.ceil(Math.random()*10);
                     secondNumb=(firstNumb+1)**2;
                     thirdNumb=(firstNumb+2)**2;
                     fourthNumb=(firstNumb+3)**2;
                     fifthNumb=(firstNumb+4)**2;
                     sixNumb=(firstNumb+5)**2;
-                    this.correctAnswer=sixNumb;
                 } 
                 else if (qSelector==2)
                 {
@@ -215,7 +211,6 @@ export default class Game{
                     fourthNumb=(firstNumb*parameter+parameter*2)*parameter;
                     fifthNumb=(firstNumb*parameter+parameter*2)*parameter+parameter*2;
                     sixNumb=((firstNumb*parameter+parameter*2)*parameter+parameter*2)*parameter;
-                    this.correctAnswer=sixNumb;
                 }  
                 else if (qSelector==3)  
                 {
@@ -227,7 +222,6 @@ export default class Game{
                     fourthNumb=firstNumb+parameter-2*secParameter;
                     fifthNumb=firstNumb+parameter-3*secParameter;
                     sixNumb=firstNumb+parameter-4*secParameter;
-                    this.correctAnswer=sixNumb;
                 }   
                 else if (qSelector==4)      
                 {
@@ -239,7 +233,6 @@ export default class Game{
                     fourthNumb=firstNumb*secParameter*parameter;
                     fifthNumb=firstNumb*(secParameter**2);
                     sixNumb=firstNumb*(secParameter**2)*parameter;
-                    this.correctAnswer=sixNumb;
                 }
                 else if (qSelector==5)
                 {
@@ -250,8 +243,8 @@ export default class Game{
                     fourthNumb=(parameter*3)**2;
                     fifthNumb=(parameter*4)**2;
                     sixNumb=(parameter*5)**2;
-                    this.correctAnswer=sixNumb;
                 }
+                this.correctAnswer=sixNumb;
                 sReply+="Question No."+(this.questionNumb+1)+": \n"+ firstNumb+ " "+ secondNumb+" "+thirdNumb+" "+fourthNumb+" "+fifthNumb+ " ?"+
                 "\n What is the Sixth number?";
                 this.roundCount++;
@@ -263,29 +256,31 @@ export default class Game{
             {
                 if (sInput==this.correctAnswer && this.roundCount!=0)
                 {
-                    sReply="you right. the correct answer is " + this.correctAnswer+".\n";                  
-    
+                    sReply="you right. the correct answer is " + this.correctAnswer+".\n";     
                 }
                 else if (sInput!=this.correctAnswer && this.correctAnswer!=0)
                 {
                     if (isNaN(sInput))
                     {
                         return (["Please enter valid number!"]);
-                    }
-                    
+                    }                    
                     sReply="You are wrong! \n Correct answer is "+this.correctAnswer+ ".\n";
                 };
-
-                if (this.wAnswer>this.rAnswer)
+                sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + " \nlevel! \n";
+                if ((this.rAnswer/this.wAnswer)*100>=60)
                 {
-                    sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + "\n level!";
-                    this.stateCur=GameState.WELCOMING;                
-                    sReply+="\n You can type one of keywords to \n retry current level or advance to\n next level.";
-                    this.rAnswer=0;
-                    this.wAnswer=0;
-                    this.roundCount=0;
-                    this.questionNumb=0;
+                    sReply+="You've PASSED this challenge\n level.";
                 }
+                else
+                {
+                    sReply+="You've FAILED this challenge\n level.";
+                }
+                this.stateCur=GameState.WELCOMING;                
+                sReply+="\n You can type one of keywords to \n retry current level or advance to\n next level.";
+                this.rAnswer=0;
+                this.wAnswer=0;
+                this.roundCount=0;
+                this.questionNumb=0;
                 return ([sReply]);
             }
         };
@@ -306,7 +301,7 @@ export default class Game{
                     sReply+="You are correct. \n";
                     this.rAnswer++;    
                 }
-                else if (sInput!=this.correctAnswer && this.correctAnswer!=0 &this.roundCount!=0)
+                else if (sInput!=this.correctAnswer && this.roundCount!=0)
                 {
                     if (isNaN(sInput))
                     {
@@ -326,7 +321,6 @@ export default class Game{
                     fourthNumb=thirdNumb*parameter-secParameter**2;
                     fifthNumb=fourthNumb*parameter-secParameter**3;
                     sixNumb=fifthNumb*parameter-secParameter**4;
-                    this.correctAnswer=sixNumb;
                 } 
                 else if (qSelector==2)
                 {
@@ -337,7 +331,6 @@ export default class Game{
                     fourthNumb=thirdNumb+3*parameter;
                     fifthNumb=fourthNumb-4*parameter;
                     sixNumb=fifthNumb+5*parameter;
-                    this.correctAnswer=sixNumb;
                 }  
                 else if (qSelector==3)  
                 {                    
@@ -347,7 +340,6 @@ export default class Game{
                     fourthNumb=(firstNumb+3)**3;
                     fifthNumb=(firstNumb+4)**3;
                     sixNumb=(firstNumb+5)**3;
-                    this.correctAnswer=sixNumb;
                 }   
                 else if (qSelector==4)      
                 {
@@ -358,7 +350,6 @@ export default class Game{
                     fourthNumb=(parameter*3)**2+1;
                     fifthNumb=(parameter*4)**2+1;
                     sixNumb=(parameter*5)**2+1;
-                    this.correctAnswer=sixNumb;
                 }
                 else if (qSelector==5)
                 {
@@ -369,9 +360,9 @@ export default class Game{
                     thirdNumb=secondNumb+(secParameter**2)*parameter;
                     fourthNumb=thirdNumb-(secParameter**3)*parameter;
                     fifthNumb=fourthNumb+(secParameter**4)*parameter;
-                    sixNumb=fifthNumb-(secParameter**5)*parameter;
-                    this.correctAnswer=sixNumb;
+                    sixNumb=fifthNumb-(secParameter**5)*parameter;                    
                 }
+                this.correctAnswer=sixNumb;
                 sReply+="Question No."+(this.questionNumb+1)+": \n"+ firstNumb+ " "+ secondNumb+" "+thirdNumb+" "+fourthNumb+" "+fifthNumb+ " ?"+
                 "\n What is the Sixth number?";
                 this.roundCount++;
@@ -383,8 +374,7 @@ export default class Game{
             {
                 if (sInput==this.correctAnswer && this.roundCount!=0)
                 {
-                    sReply="you right. the correct answer is " + this.correctAnswer+".\n";                  
-    
+                    sReply="you right. the correct answer is " + this.correctAnswer+".\n";  
                 }
                 else if (sInput!=this.correctAnswer && this.correctAnswer!=0)
                 {
@@ -395,17 +385,21 @@ export default class Game{
                     
                     sReply="You are wrong! \n Correct answer is "+this.correctAnswer+ ".\n";
                 };
-
-                if (this.wAnswer>this.rAnswer)
+                sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + " level! \n";
+                if ((this.rAnswer/this.wAnswer)*100>=60)
                 {
-                    sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + "\n level!";
-                    this.stateCur=GameState.WELCOMING;                
-                    sReply+="\n You can type one of keywords to \n retry current level or advance to\n next level.";
-                    this.rAnswer=0;
-                    this.wAnswer=0;
-                    this.roundCount=0;
-                    this.questionNumb=0;
+                    sReply+="You've PASSED this challenge\n level.";
                 }
+                else
+                {
+                    sReply+="You've FAILED this challenge\n level.";
+                }
+                this.stateCur=GameState.WELCOMING;                
+                sReply+="\n You can type one of keywords to \n retry current level or advance to\n next level.";
+                this.rAnswer=0;
+                this.wAnswer=0;
+                this.roundCount=0;
+                this.questionNumb=0;
                 return ([sReply]);
             }
         };
@@ -453,56 +447,7 @@ export default class Game{
                 return (["Game Over! The correct answer is "+this.correctAnswer+"\n Type any level keywords to\n restart game"]);
             }            
         };
-        
-
-        
-        
-        
-        
-        
-        
-        
-        // switch (this.stateCur)
-        // {
-        //     case GameState.WELCOMING:
-        //     if (sInput.toLowerCase().match("easy"))
-        //     {
-        //         this.stateCur=GameState.EASY;
-        //         sReply="You are in easy mode";
-                
-        //     }
-        //     else if (sInput.toLowerCase().match("medium"))
-        //     {
-        //         this.stateCur=Game.MEDIUM;
-        //         sReply="you are in medium mode";
-        //     }
-        //     break;
-
-
-
-
-            
-        // }
         return ([sReply]);
     }
 }
         
-        
-        
-        // switch(this.stateCur){
-        //     case GameState.WELCOMING:
-        //         this.stateCur = GameState.FLAT;
-        //         break;
-        //     case GameState.FLAT:
-        //         if(sInput.toLowerCase().match("wait")){
-        //             sReply = "The road is deserted. After 1 hour there is still no help. Do you keep Waiting or do you go to the house?";
-        //         }else{
-        //             sReply ="On the door is a large knocker. Do you knock or run back to your car to wait?";
-        //             this.stateCur = GameState.MANSION;
-        //         }
-        //         this.stateCur = GameState.FLAT;
-        //         break;
-//         // }
-//         return([sReply]);
-//     }
-// }
