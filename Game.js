@@ -3,7 +3,7 @@ const GameState = Object.freeze({
     EASY:  Symbol("easy"),
     MEDIUM: Symbol("medium"),
     HARD: Symbol("hard"),
-    HARDCORE: Symbol("hardcore")
+    EXPERT: Symbol("expert")
 });
 
 
@@ -20,7 +20,7 @@ export default class Game{
     {
         let sReply = "Hello! I am your math tutor \n today. Chatting with me will \n help you improve your math \n aptitude, or \
         soon you will find \n out you dont want to do math \n anymore in the future. We have \n four levels for this game:\n \
-        EASY, MEDIUM, HARD, \n HARDCORE. \n Please enter one of these\n keywords to starting playing!";
+        EASY, MEDIUM, HARD, \n EXPERT. \n Please enter one of these\n keywords to starting playing!";
         if (sInput.toLowerCase().match("easy"))
         {
             this.stateCur=GameState.EASY;            
@@ -33,9 +33,9 @@ export default class Game{
         {
             this.stateCur=GameState.HARD;
         }
-        else if (sInput.toLowerCase().match("hardcore"))
+        else if (sInput.toLowerCase()=="expert")
         {
-            this.stateCur=GameState.HARDCORE;
+            this.stateCur=GameState.EXPERT;
         }
         else if (sInput.toLowerCase()=="exit" || sInput.toLowerCase()=="quit")
         {
@@ -299,7 +299,7 @@ export default class Game{
                 let sReply="";
                 if (this.roundCount==0)
                 {
-                    sReply+="You are in the MEDIUM mode! \n";
+                    sReply+="You are in the HARD mode! \n";
                 }                              
                 if (sInput==this.correctAnswer && this.roundCount!=0)
                 {
@@ -409,6 +409,51 @@ export default class Game{
                 return ([sReply]);
             }
         };
+        while (this.stateCur==GameState.EXPERT)
+        {                
+            while (this.roundCount<1)
+            {                 
+                let sReply="";
+                if (this.roundCount==0)
+                {
+                    sReply+="You are in the EXPERT mode! \n";
+                }                                             
+                sReply+="Scenario: there was a scientist \ngroup conducting an experiment\n to check gene expression in \npigs. It was observed that there \n \
+                were 260 crossed pigs F2 from \nF1 WHITE and F1 BLACK pigs.\n Out of these pigs, there were\n 181 F2 WHITE pigs, and 79 F2\n BLACK pigs. \n \
+                Question: Whether the observed\n color partition fits 3:1 ratio?\n Tips: Please provide Chi-square value!";
+                this.roundCount++;
+                this.correctAnswer=4.020;                 
+                return ([sReply]);        
+            }
+            
+            if (this.roundCount<5)
+            {
+                if (sInput==this.correctAnswer && this.roundCount!=0)
+                {
+                    sReply="You're right. the correct answer \nis " + this.correctAnswer+".\n"; 
+                    sReply+="You have completed all levels,\n congratulations!\n You can quit or type in any level\n keywords to redo challenges!";
+                    this.roundCount=0;
+                    this.stateCur=GameState.WELCOMING;
+                }
+                else if (sInput!=this.correctAnswer && this.roundCount!=0)
+                {
+                    if (isNaN(sInput))
+                    {
+                        return (["Please enter valid number!"]);
+                    }
+                    
+                    sReply="You are wrong! \n You can try " +(5-this.roundCount)+" times more\n";
+                    this.roundCount++;
+                };                
+                return ([sReply]);
+            }
+            if (this.roundCount==5)
+            {
+                this.stateCur=GameState.WELCOMING;
+                return (["Game Over! The correct answer is "+this.correctAnswer+"\n Type any level keywords to\n restart game"]);
+            }            
+        };
+        
 
         
         
