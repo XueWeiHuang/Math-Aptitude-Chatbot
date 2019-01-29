@@ -6,7 +6,6 @@ const GameState = Object.freeze({
     EXPERT: Symbol("expert")
 });
 
-
 export default class Game{
     constructor(){
         this.stateCur = GameState.WELCOMING;
@@ -69,7 +68,7 @@ export default class Game{
                         return (["Please enter valid number"]);
                     }
                     this.wAnswer++;
-                    sReply+="You are wrong! \n Correct answer is "+this.correctAnswer+ "\n";
+                    sReply+=`You are wrong! \n Correct answer is ${this.correctAnswer} \n`;
                 };       
                 let qSelector=Math.floor(Math.random() * 5) + 1 ;
                 if (qSelector==1)
@@ -125,8 +124,8 @@ export default class Game{
                     sixNumb=firstNumb*parameter*(parameter+1)*(parameter+2)*(parameter+3)*(parameter+4);                    
                 }
                 this.correctAnswer=sixNumb;
-                sReply+="Question No."+(this.questionNumb+1)+": \n"+ firstNumb+ " "+ secondNumb+" "+thirdNumb+" "+fourthNumb+" "+fifthNumb+ " ?"+
-                "\n What is the Sixth number?";
+                sReply+=`Question No.${this.questionNumb+1}: \n ${firstNumb} ${secondNumb} ${thirdNumb} ${fourthNumb} ${fifthNumb} ? \
+                \n What is the Sixth number?`;
                 this.roundCount++;
                 this.questionNumb++;
                 return ([sReply]);        
@@ -136,7 +135,7 @@ export default class Game{
             {
                 if (sInput==this.correctAnswer && this.roundCount!=0)
                 {
-                    sReply="you right. the correct answer is " + this.correctAnswer+"\n";   
+                    sReply=`You're right. \nCorrect answer is ${this.correctAnswer}\n`;   
                 }
                 else if (sInput!=this.correctAnswer && this.correctAnswer!=0)
                 {
@@ -144,7 +143,7 @@ export default class Game{
                     {
                         return (["Please enter valid number!"]);
                     }                    
-                    sReply="You are wrong! \n Correct answer is "+this.correctAnswer+ "\n";
+                    sReply=`You are wrong! \n Correct answer is ${this.correctAnswer}\n`;
                 };
                 sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + " level! \n";
 
@@ -165,8 +164,6 @@ export default class Game{
                 return ([sReply]);
             }
         };
-
-
         while (this.stateCur==GameState.MEDIUM)
         {               
             while (this.roundCount<10)
@@ -180,7 +177,7 @@ export default class Game{
                 }                              
                 if (sInput==this.correctAnswer && this.roundCount!=0)
                 {
-                    sReply+="You are correct. \n";
+                    sReply+="You're right. \nCorrect answer is ${this.correctAnswer}. \n";
                     this.rAnswer++;    
                 }
                 else if (sInput!=this.correctAnswer &&this.roundCount!=0)
@@ -190,7 +187,7 @@ export default class Game{
                         return (["Please enter valid number"]);
                     }
                     this.wAnswer++;
-                    sReply+="You are wrong! \n Correct answer is "+this.correctAnswer+ ".\n";
+                    sReply+=`You are wrong! \n Correct answer is ${this.correctAnswer}.\n`;
                 };       
                 let qSelector=Math.floor(Math.random() * 5) + 1 ;
                 if (qSelector==1)
@@ -245,8 +242,8 @@ export default class Game{
                     sixNumb=(parameter*5)**2;
                 }
                 this.correctAnswer=sixNumb;
-                sReply+="Question No."+(this.questionNumb+1)+": \n"+ firstNumb+ " "+ secondNumb+" "+thirdNumb+" "+fourthNumb+" "+fifthNumb+ " ?"+
-                "\n What is the Sixth number?";
+                sReply+=`Question No.${this.questionNumb+1}: \n ${firstNumb} ${secondNumb} ${thirdNumb} ${fourthNumb} ${fifthNumb} ? \
+                \n What is the Sixth number?`;
                 this.roundCount++;
                 this.questionNumb++;
                 return ([sReply]);        
@@ -256,7 +253,7 @@ export default class Game{
             {
                 if (sInput==this.correctAnswer && this.roundCount!=0)
                 {
-                    sReply="you right. the correct answer is " + this.correctAnswer+".\n";     
+                    sReply=`You're right. \nCorrect answer is ${this.correctAnswer}.\n`;     
                 }
                 else if (sInput!=this.correctAnswer && this.correctAnswer!=0)
                 {
@@ -264,7 +261,7 @@ export default class Game{
                     {
                         return (["Please enter valid number!"]);
                     }                    
-                    sReply="You are wrong! \n Correct answer is "+this.correctAnswer+ ".\n";
+                    sReply=`You are wrong! \n Correct answer is ${this.correctAnswer}.\n`;
                 };
                 sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + " \nlevel! \n";
                 if ((this.rAnswer/this.wAnswer)*100>=60)
@@ -298,7 +295,7 @@ export default class Game{
                 }                              
                 if (sInput==this.correctAnswer && this.roundCount!=0)
                 {
-                    sReply+="You are correct. \n";
+                    sReply+="You're right. \nCorrect answer is ${this.correctAnswer}. \n";
                     this.rAnswer++;    
                 }
                 else if (sInput!=this.correctAnswer && this.roundCount!=0)
@@ -308,7 +305,7 @@ export default class Game{
                         return (["Please enter valid number"]);
                     }
                     this.wAnswer++;
-                    sReply+="You are wrong! \n Correct answer is "+this.correctAnswer+ ".\n";
+                    sReply+=`You are wrong! \n Correct answer is ${this.correctAnswer}.\n`;
                 };       
                 let qSelector=Math.floor(Math.random() * 5) + 1 ;
                 if (qSelector==1)
@@ -363,8 +360,8 @@ export default class Game{
                     sixNumb=fifthNumb-(secParameter**5)*parameter;                    
                 }
                 this.correctAnswer=sixNumb;
-                sReply+="Question No."+(this.questionNumb+1)+": \n"+ firstNumb+ " "+ secondNumb+" "+thirdNumb+" "+fourthNumb+" "+fifthNumb+ " ?"+
-                "\n What is the Sixth number?";
+                sReply+=`Question No.${this.questionNumb+1}: \n ${firstNumb} ${secondNumb} ${thirdNumb} ${fourthNumb} ${fifthNumb} ?\
+                 \n What is the Sixth number?`;
                 this.roundCount++;
                 this.questionNumb++;
                 return ([sReply]);        
@@ -374,16 +371,15 @@ export default class Game{
             {
                 if (sInput==this.correctAnswer && this.roundCount!=0)
                 {
-                    sReply="you right. the correct answer is " + this.correctAnswer+".\n";  
+                    sReply=`You're right. \nCorrect answer is ${this.correctAnswer}.\n`;  
                 }
                 else if (sInput!=this.correctAnswer && this.correctAnswer!=0)
                 {
                     if (isNaN(sInput))
                     {
                         return (["Please enter valid number!"]);
-                    }
-                    
-                    sReply="You are wrong! \n Correct answer is "+this.correctAnswer+ ".\n";
+                    }                    
+                    sReply=`You are wrong! \n Correct answer is ${this.correctAnswer}.\n`;
                 };
                 sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + " level! \n";
                 if ((this.rAnswer/this.wAnswer)*100>=60)
@@ -424,7 +420,7 @@ export default class Game{
             {
                 if (sInput==this.correctAnswer && this.roundCount!=0)
                 {
-                    sReply="You're right. the correct answer \nis " + this.correctAnswer+".\n"; 
+                    sReply=`You're right. \nCorrect answer is ${this.correctAnswer}.\n`; 
                     sReply+="You have completed all levels,\n congratulations!\n You can quit or type in any level\n keywords to redo challenges!";
                     this.roundCount=0;
                     this.stateCur=GameState.WELCOMING;
@@ -436,7 +432,7 @@ export default class Game{
                         return (["Please enter valid number!"]);
                     }
                     
-                    sReply="You are wrong! \n You can try " +(5-this.roundCount)+" times more\n";
+                    sReply=`You are wrong! \n You can try ${5-this.roundCount} times more\n`;
                     this.roundCount++;
                 };                
                 return ([sReply]);
@@ -444,7 +440,7 @@ export default class Game{
             if (this.roundCount==5)
             {
                 this.stateCur=GameState.WELCOMING;
-                return (["Game Over! The correct answer is "+this.correctAnswer+"\n Type any level keywords to\n restart game"]);
+                return ([`Game Over! The correct answer is ${this.correctAnswer}\n Type any level keywords to\n restart game`]);
             }            
         };
         return ([sReply]);
