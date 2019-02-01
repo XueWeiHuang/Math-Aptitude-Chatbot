@@ -17,9 +17,10 @@ export default class Game{
     }      
     makeAMove(sInput)
     {
-        let sReply = "Hello! I am your math tutor \n today. Chatting with me will \n help you improve your math \n aptitude, or \
-        soon you will find \n out you dont want to do math \n anymore in the future. We have \n four levels for this game:\n \
-        EASY, MEDIUM, HARD, \n EXPERT. \n Please enter one of these\n keywords to starting playing!";
+        let sReply = "Hello! I am your math tutor today. Chatting with me will help you improve your math aptitude, or \
+        soon you will find out you dont want to do math anymore in the future. We have four levels for this game:\n \
+        EASY, MEDIUM, HARD, EXPERT. \n Please enter one of these keywords to starting playing! If you want to restart the game \
+        in the middle of game, you can type \"EXIT\" or \"QUIT \".";
         if (sInput.toLowerCase().match("easy"))
         {
             this.stateCur=GameState.EASY;            
@@ -149,14 +150,14 @@ export default class Game{
 
                 if ((this.rAnswer/this.wAnswer)*100>=60)
                 {
-                    sReply+="You've PASSED this challenge\n level.";
+                    sReply+="You've PASSED this challenge level.";
                 }
                 else
                 {
-                    sReply+="You've FAILED this challenge\n level.";
+                    sReply+="You've FAILED this challenge level.";
                 }
                 this.stateCur=GameState.WELCOMING;                
-                sReply+="\n You can type one of keywords to \n retry current level or advance to\n next level.";
+                sReply+="\n You can type one of keywords to retry current level or advance to next level.";
                 this.rAnswer=0;
                 this.wAnswer=0;
                 this.roundCount=0;
@@ -177,7 +178,7 @@ export default class Game{
                 }                              
                 if (sInput==this.correctAnswer && this.roundCount!=0)
                 {
-                    sReply+="You're right. \nCorrect answer is ${this.correctAnswer}. \n";
+                    sReply+=`You're right. \nCorrect answer is ${this.correctAnswer}. \n`;
                     this.rAnswer++;    
                 }
                 else if (sInput!=this.correctAnswer &&this.roundCount!=0)
@@ -266,14 +267,14 @@ export default class Game{
                 sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + " \nlevel! \n";
                 if ((this.rAnswer/this.wAnswer)*100>=60)
                 {
-                    sReply+="You've PASSED this challenge\n level.";
+                    sReply+="You've PASSED this challenge level.";
                 }
                 else
                 {
-                    sReply+="You've FAILED this challenge\n level.";
+                    sReply+="You've FAILED this challenge level.";
                 }
                 this.stateCur=GameState.WELCOMING;                
-                sReply+="\n You can type one of keywords to \n retry current level or advance to\n next level.";
+                sReply+="\n You can type one of keywords to retry current level or advance to next level.";
                 this.rAnswer=0;
                 this.wAnswer=0;
                 this.roundCount=0;
@@ -384,14 +385,14 @@ export default class Game{
                 sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + " level! \n";
                 if ((this.rAnswer/this.wAnswer)*100>=60)
                 {
-                    sReply+="You've PASSED this challenge\n level.";
+                    sReply+="You've PASSED this challenge level.";
                 }
                 else
                 {
-                    sReply+="You've FAILED this challenge\n level.";
+                    sReply+="You've FAILED this challenge level.";
                 }
                 this.stateCur=GameState.WELCOMING;                
-                sReply+="\n You can type one of keywords to \n retry current level or advance to\n next level.";
+                sReply+="\n You can type one of keywords to retry current level or advance to next level.";
                 this.rAnswer=0;
                 this.wAnswer=0;
                 this.roundCount=0;
@@ -408,20 +409,19 @@ export default class Game{
                 {
                     sReply+="You are in the EXPERT mode! \n";
                 }                                             
-                sReply+="Scenario: there was a scientist \ngroup conducting an experiment\n to check gene expression in \npigs. It was observed that there \n \
-                were 260 crossed pigs F2 from \nF1 WHITE and F1 BLACK pigs.\n Out of these pigs, there were\n 181 F2 WHITE pigs, and 79 F2\n BLACK pigs. \n \
-                Question: Whether the observed\n color partition fits 3:1 ratio?\n Tips: Please provide Chi-square value!";
+                sReply+="Scenario: there was a scientist group conducting an experiment to check gene expression in pigs. It was observed that there  \
+                were 260 crossed pigs F2 from F1 WHITE and F1 BLACK pigs. Out of these pigs, there were 181 F2 WHITE pigs, and 79 F2 BLACK pigs. \
+                Question: Whether the observed color partition fits 3:1 ratio? Tips: Please provide Chi-square value!";
                 this.roundCount++;
                 this.correctAnswer=4.020;                 
                 return ([sReply]);        
-            }
-            
+            }            
             if (this.roundCount<5)
             {
                 if (sInput==this.correctAnswer && this.roundCount!=0)
                 {
                     sReply=`You're right. \nCorrect answer is ${this.correctAnswer}.\n`; 
-                    sReply+="You have completed all levels,\n congratulations!\n You can quit or type in any level\n keywords to redo challenges!";
+                    sReply+="You have completed all levels, congratulations! You can quit or type in any level keywords to redo challenges!";
                     this.roundCount=0;
                     this.stateCur=GameState.WELCOMING;
                 }
@@ -440,7 +440,7 @@ export default class Game{
             if (this.roundCount==5)
             {
                 this.stateCur=GameState.WELCOMING;
-                return ([`Game Over! The correct answer is ${this.correctAnswer}\n Type any level keywords to\n restart game`]);
+                return ([`Game Over! The correct answer is ${this.correctAnswer}.\n Type any level keywords to restart game`]);
             }            
         };
         return ([sReply]);
