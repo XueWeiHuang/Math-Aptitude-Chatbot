@@ -19,8 +19,8 @@ export default class Game{
     {
         let sReply = "Hello! I am your math tutor today. Chatting with me will help you improve your math aptitude, or \
         soon you will find out you dont want to do math anymore in the future. We have four levels for this game:\n \
-        EASY, MEDIUM, HARD, EXPERT. \n Please enter one of these keywords to starting playing! If you want to restart the game \
-        in the middle of game, you can type \"EXIT\" or \"QUIT \".";
+        EASY, MEDIUM, HARD, EXPERT. \n Please enter one of these keywords to start playing! If you want to quit the game \
+        anytime, you can type \"EXIT\" or \"QUIT \".";
         if (sInput.toLowerCase().match("easy"))
         {
             this.stateCur=GameState.EASY;            
@@ -148,13 +148,13 @@ export default class Game{
                 };
                 sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + " level! \n";
 
-                if ((this.rAnswer/this.wAnswer)*100>=60)
+                if (this.rAnswer>=6)
                 {
-                    sReply+="You've PASSED this challenge level.";
+                    sReply+=`You got ${this.rAnswer} of 10 correct! You've PASSED this challenge level.`;
                 }
                 else
                 {
-                    sReply+="You've FAILED this challenge level.";
+                    sReply+=`You got ${this.rAnswer} of 10 correct! You've FAILED this challenge level.`;
                 }
                 this.stateCur=GameState.WELCOMING;                
                 sReply+="\n You can type one of keywords to retry current level or advance to next level.";
@@ -265,13 +265,13 @@ export default class Game{
                     sReply=`You are wrong! \n Correct answer is ${this.correctAnswer}.\n`;
                 };
                 sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + " \nlevel! \n";
-                if ((this.rAnswer/this.wAnswer)*100>=60)
+                if (this.rAnswer>=6)
                 {
-                    sReply+="You've PASSED this challenge level.";
+                    sReply+=`You got ${this.rAnswer} of 10 correct! You've PASSED this challenge level.`;
                 }
                 else
                 {
-                    sReply+="You've FAILED this challenge level.";
+                    sReply+=`You got ${this.rAnswer} of 10 correct! You've FAILED this challenge level.`;
                 }
                 this.stateCur=GameState.WELCOMING;                
                 sReply+="\n You can type one of keywords to retry current level or advance to next level.";
@@ -383,13 +383,13 @@ export default class Game{
                     sReply=`You are wrong! \n Correct answer is ${this.correctAnswer}.\n`;
                 };
                 sReply+="You've completed "+ this.stateCur.toString().substr(7, (this.stateCur.toString().length-8) ).toUpperCase() + " level! \n";
-                if ((this.rAnswer/this.wAnswer)*100>=60)
+                if (this.rAnswer>=6)
                 {
-                    sReply+="You've PASSED this challenge level.";
+                    sReply+=`You got ${this.rAnswer} of 10 correct! You've PASSED this challenge level.`;
                 }
                 else
                 {
-                    sReply+="You've FAILED this challenge level.";
+                    sReply+=`You got ${this.rAnswer} of 10 correct! You've FAILED this challenge level.`;
                 }
                 this.stateCur=GameState.WELCOMING;                
                 sReply+="\n You can type one of keywords to retry current level or advance to next level.";
