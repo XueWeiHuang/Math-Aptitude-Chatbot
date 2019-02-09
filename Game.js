@@ -440,6 +440,7 @@ export default class Game{
             if (this.roundCount==5)
             {
                 this.stateCur=GameState.WELCOMING;
+                this.roundCount=0;
                 return ([`Game Over! The correct answer is ${this.correctAnswer}.\n Type any level keywords to restart game`]);
             }            
         };
