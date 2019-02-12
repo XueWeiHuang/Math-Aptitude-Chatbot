@@ -29,10 +29,31 @@ Add additional notes about how to deploy this on a live system
 
 ## Testing
 1. System should response to user input <br>
-<img height="240" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/1.png"  style="  display: block;
+<img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/1.png"  style="  display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;"/>
+2. System should prompt question to user. <br>
+<img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/2.png"  style="  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;"/>
+3. System should have logic to determine right or wrong. <br>
+<img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/3.png"  style="  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;"/>
+  <img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/4.png"  style="  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;"/>
+4. System allows user to withdraw any time
+  <img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/5.png"  style="  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;"/>
+
+ 
 
 ## Built With
 
