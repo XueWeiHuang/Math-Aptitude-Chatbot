@@ -27,6 +27,10 @@ The app generates questions in a generic way, no same question will be asked to 
 
 Add additional notes about how to deploy this on a live system
 
+## Testing
+1. System should response to user input
+<img src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/1.png" />
+
 ## Built With
 
 * Node.js 
