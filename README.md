@@ -29,7 +29,10 @@ Add additional notes about how to deploy this on a live system
 
 ## Testing
 1. System should response to user input
-<img height="80" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/1.png" />
+<img height="120px" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/1.png"  style="  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;"/>
 
 ## Built With
 
