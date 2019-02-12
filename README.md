@@ -39,15 +39,15 @@ Add additional notes about how to deploy this on a live system
   margin-right: auto;
   width: 50%;"/>
 3. System should have logic to determine right or wrong. <br>
-<img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/3.png"  style="  display: block;
+<img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/3.png"  style="  display: inline-block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;"/>
-  <img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/4.png"  style="  display: block;
+  <img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/4.png"  style="  display: inline-block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;"/>
-4. System allows user to withdraw any time
+4. System allows user to withdraw any time <br>
   <img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/5.png"  style="  display: block;
   margin-left: auto;
   margin-right: auto;
