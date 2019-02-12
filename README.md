@@ -29,10 +29,10 @@ Add additional notes about how to deploy this on a live system
 
 ## Testing
 1. System should response to user input <br>
-<img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/1.png"  style="  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;"/>
+<img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/1.png"  style="  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 50% !important;"/>
 2. System should prompt question to user. <br>
 <img height="480" src="https://github.com/XueWeiHuang/Math-Aptitude-Chatbot/blob/master/testimg/2.png"  style="  display: block;
   margin-left: auto;
