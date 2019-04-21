@@ -1,6 +1,6 @@
 # Math Aptitude Chatbot
 
-Welcome! This is a chatbot app to help users their problem critical thinking and math aptitude logics. The game comes with questions from different difficulty levels including easy, medium, hard, and expert. Easy, Medium, and Hard levels have 10 questions each level, and Expert level has only 1 question. The game will probide some hints for each one questions, and users answer questions with numbering sequence skills and brainstroming technique.
+Welcome! This is a chatbot app to help users their problem critical thinking and math aptitude logics. The game comes with questions from different difficulty levels including easy, medium, hard, and expert. Easy, Medium, and Hard levels have 10 questions each level, and Expert level has only 1 question. The game will provide some hints for each one questions, and users answer questions with numbering sequence skills and brainstorming technique.
 The app generates questions in a generic way, no same question will be asked to users, and users can practice as many times as they want.
 
 ## Getting Started
